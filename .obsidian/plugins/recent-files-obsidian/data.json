@@ -1,12 +1,48 @@
 {
   "recentFiles": [
     {
-      "basename": "Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence",
-      "path": "raw/Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence.md"
+      "basename": "디자인 시스템에 Compound Component Pattern 적용기",
+      "path": "Clipping/디자인 시스템에 Compound Component Pattern 적용기.md"
     },
     {
-      "basename": "hot",
-      "path": "wiki/hot.md"
+      "basename": "git-merge-strategy-ort",
+      "path": "wiki/sources/git-merge-strategy-ort.md"
+    },
+    {
+      "basename": "oxfmt",
+      "path": "wiki/sources/oxfmt.md"
+    },
+    {
+      "basename": "biome-migration-report",
+      "path": "wiki/sources/biome-migration-report.md"
+    },
+    {
+      "basename": "biome-migration-guide",
+      "path": "wiki/sources/biome-migration-guide.md"
+    },
+    {
+      "basename": "elijah-newren",
+      "path": "wiki/entities/elijah-newren.md"
+    },
+    {
+      "basename": "git-merge-strategies",
+      "path": "wiki/concepts/git-merge-strategies.md"
+    },
+    {
+      "basename": "biome",
+      "path": "wiki/concepts/biome.md"
+    },
+    {
+      "basename": "CLAUDE",
+      "path": "CLAUDE.md"
+    },
+    {
+      "basename": "branstorming",
+      "path": "branstorming.md"
+    },
+    {
+      "basename": "overview",
+      "path": "wiki/overview.md"
     },
     {
       "basename": "log",
@@ -17,16 +53,20 @@
       "path": "wiki/index.md"
     },
     {
-      "basename": "biome-migration-report",
-      "path": "wiki/sources/biome-migration-report.md"
+      "basename": "oxfmt",
+      "path": "wiki/concepts/oxfmt.md"
     },
     {
-      "basename": "biome",
-      "path": "wiki/concepts/biome.md"
+      "basename": "monorepo-dx",
+      "path": "wiki/concepts/monorepo-dx.md"
     },
     {
-      "basename": "overview",
-      "path": "wiki/overview.md"
+      "basename": "Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence",
+      "path": "raw/Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence.md"
+    },
+    {
+      "basename": "hot",
+      "path": "wiki/hot.md"
     },
     {
       "basename": "autoresearch",
@@ -45,20 +85,8 @@
       "path": "plugins/llm-wiki/commands/query.md"
     },
     {
-      "basename": "git-merge-strategies",
-      "path": "wiki/concepts/git-merge-strategies.md"
-    },
-    {
       "basename": "3-way-merge",
       "path": "raw/3-way-merge.md"
-    },
-    {
-      "basename": "git-merge-strategy-ort",
-      "path": "wiki/sources/git-merge-strategy-ort.md"
-    },
-    {
-      "basename": "elijah-newren",
-      "path": "wiki/entities/elijah-newren.md"
     },
     {
       "basename": "Migrate to Biome Report - 코어 파트너프론트엔드 - Confluence",
@@ -83,14 +111,6 @@
     {
       "basename": "save",
       "path": "plugins/llm-wiki/commands/save.md"
-    },
-    {
-      "basename": "monorepo-dx",
-      "path": "wiki/concepts/monorepo-dx.md"
-    },
-    {
-      "basename": "CLAUDE",
-      "path": "CLAUDE.md"
     }
   ],
   "omittedPaths": [],
