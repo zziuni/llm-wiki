@@ -5,7 +5,7 @@
   "useMarkdownLinks": false,
   "showUnsupportedFiles": false,
   "alwaysUpdateLinks": true,
-  "promptDelete": true,
+  "promptDelete": false,
   "defaultViewMode": "source",
   "userIgnoreFilters": [
     ".claude-plugin",
