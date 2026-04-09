@@ -9,7 +9,7 @@
   "defaultViewMode": "source",
   "userIgnoreFilters": [
     ".claude-plugin",
-    "plugins",
+    "/plugins/",
     ".claude",
     ".git",
     ".remember",
