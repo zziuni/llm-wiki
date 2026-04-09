@@ -1,0 +1,21 @@
+prompt.md
+plan.md
+
+# Obsidian — 사용자별 런타임 상태 (vault 설정은 추적)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/
+.obsidian/themes/
+.obsidian/hotkeys.json
+.obsidian/community-plugins.json
+
+# Claude Code 런타임
+.claude/
+.remember/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 위키 핫캐시 — 세션별 임시 상태, git에 불필요
+wiki/hot.md

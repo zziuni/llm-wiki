@@ -1,0 +1,43 @@
+/* Wiki folder color coding in file explorer */
+
+/* Concepts - Blue */
+.nav-file[data-path^="wiki/concepts"] .nav-file-title-content {
+  color: #4a9eff;
+}
+
+/* Entities - Green */
+.nav-file[data-path^="wiki/entities"] .nav-file-title-content {
+  color: #4ac29a;
+}
+
+/* Sources - Orange */
+.nav-file[data-path^="wiki/sources"] .nav-file-title-content {
+  color: #ff9500;
+}
+
+/* Analyses - Purple */
+.nav-file[data-path^="wiki/analyses"] .nav-file-title-content {
+  color: #9b59b6;
+}
+
+/* Raw sources - Gray */
+.nav-file[data-path^="raw"] .nav-file-title-content {
+  color: #808080;
+}
+
+/* Folder title colors */
+.nav-folder[data-path^="wiki/concepts"] > .nav-folder-title {
+  color: #4a9eff;
+}
+.nav-folder[data-path^="wiki/entities"] > .nav-folder-title {
+  color: #4ac29a;
+}
+.nav-folder[data-path^="wiki/sources"] > .nav-folder-title {
+  color: #ff9500;
+}
+.nav-folder[data-path^="wiki/analyses"] > .nav-folder-title {
+  color: #9b59b6;
+}
+.nav-folder[data-path^="raw"] > .nav-folder-title {
+  color: #808080;
+}
