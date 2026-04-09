@@ -4,10 +4,10 @@ plan.md
 # Obsidian — 사용자별 런타임 상태 (vault 설정은 추적)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.obsidian/plugins/
+# .obsidian/plugins/           ← 두 장비 싱크를 위해 추적
+# .obsidian/community-plugins.json  ← plugins/와 쌍
 .obsidian/themes/
 .obsidian/hotkeys.json
-.obsidian/community-plugins.json
 
 # Claude Code 런타임
 .claude/
