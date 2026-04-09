@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재발견하는 대신, 영구적인 위키를 점진적으로 구축/유지한다. 사람은 소스를 큐레이션하고 질문하며, LLM이 요약, 교차참조, 정리, 유지보수를 전담한다. 구축된 위키는 spaced repetition flashcard로도 활용된다.
 
+## Obsidian Vault
+
+**프로젝트 root = Obsidian vault.** `.obsidian/`이 root에 위치.
+
+- `raw/` — **사용자 영역**: Obsidian에서 소스 추가 (Web Clipper, 드래그&드롭). LLM은 읽기만.
+- `wiki/` — **LLM 영역**: LLM이 작성/유지. 사용자는 Obsidian에서 브라우징.
+- dev 파일 (`.claude-plugin/`, `CLAUDE.md` 등)은 `userIgnoreFilters`로 Obsidian에서 숨김 처리.
+
 ## Architecture (Three Layers)
 
 1. **Raw sources** (`raw/`) — 불변 원본 소스. LLM은 읽기만 하고 절대 수정하지 않는다.
@@ -13,17 +21,20 @@ Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재�
 3. **Schema** (이 파일) — LLM 행동 규칙, 컨벤션, 워크플로우 정의.
 
 ```
-raw/                    ← Layer 1: 원본 소스 (불변)
-├── assets/             ← 이미지, PDF 등 첨부파일
-wiki/                   ← Layer 2: LLM 소유 위키
-├── index.md            ← 마스터 카탈로그 (쿼리 시 첫 번째로 읽기)
-├── log.md              ← 시간순 작업 기록 (append-only)
-├── hot.md              ← 핫캐시 (세션 간 컨텍스트 이월)
-├── overview.md         ← 위키 전체 합성 요약
-├── concepts/           ← 개념 페이지
-├── entities/           ← 엔티티 페이지 (인물, 조직 등)
-├── sources/            ← 소스별 요약 페이지
-└── analyses/           ← 쿼리 결과 중 가치 있는 것 저장
+(vault root)
+├── raw/                ← Layer 1: 원본 소스 (사용자가 추가, LLM은 읽기만)
+│   └── assets/         ← 이미지, PDF 등 첨부파일
+├── wiki/               ← Layer 2: LLM 소유 위키 (사용자는 Obsidian에서 브라우징)
+│   ├── index.md        ← 마스터 카탈로그 (쿼리 시 첫 번째로 읽기)
+│   ├── log.md          ← 시간순 작업 기록 (append-only)
+│   ├── hot.md          ← 핫캐시 (세션 간 컨텍스트 이월)
+│   ├── overview.md     ← 위키 전체 합성 요약
+│   ├── concepts/       ← 개념 페이지
+│   ├── entities/       ← 엔티티 페이지 (인물, 조직 등)
+│   ├── sources/        ← 소스별 요약 페이지
+│   └── analyses/       ← 쿼리 결과 중 가치 있는 것 저장
+├── CLAUDE.md           ← Layer 3: Schema (이 파일)
+└── .obsidian/          ← vault 설정
 ```
 
 ## Key Files
@@ -172,9 +183,13 @@ plugins/
 
 ## Conventions
 
+- 파일명: 소문자, 하이픈 구분 (`machine-learning.md`), 한글 허용
 - 위키링크: `[[파일명]]` (shortest path, Obsidian 호환)
+- 모순 표시: `> [!warning] 모순` 콜아웃으로 페이지 간 충돌 표시
 - 로그 형식: `## [YYYY-MM-DD] verb | Title` — grep 파서블
 - 이미지/첨부: `raw/assets/`에 저장
 - raw/ 파일은 절대 수정하지 않는다
 - 세션 시작 시 `wiki/hot.md` 읽어 컨텍스트 복원
 - 세션 종료 시 `wiki/hot.md` 갱신
+- `wiki/hot.md`는 gitignored — 없으면 새로 생성
+- Obsidian CLI 실패 시 (앱 미실행) Read/Write/Edit tool로 fallback

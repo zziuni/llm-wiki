@@ -6,5 +6,18 @@
   "showUnsupportedFiles": false,
   "alwaysUpdateLinks": true,
   "promptDelete": true,
-  "defaultViewMode": "source"
+  "defaultViewMode": "source",
+  "userIgnoreFilters": [
+    ".claude-plugin",
+    "plugins",
+    ".claude",
+    ".git",
+    ".remember",
+    ".serena",
+    "CLAUDE.md",
+    "brainstorming.md",
+    "prompt.md",
+    "plan.md",
+    ".gitignore"
+  ]
 }
