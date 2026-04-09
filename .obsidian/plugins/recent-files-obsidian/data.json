@@ -1,0 +1,16 @@
+{
+  "recentFiles": [
+    {
+      "basename": "autoresearch",
+      "path": "plugins/llm-wiki/commands/autoresearch.md"
+    },
+    {
+      "basename": "CLAUDE",
+      "path": "CLAUDE.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}
