@@ -6,6 +6,18 @@ updated: 2026-04-09
 
 # Wiki Log
 
+## [2026-04-09] ingest | Oxfmt 공식 문서
+- 소스: oxc.rs 공식 문서
+- 생성: sources/oxfmt.md, concepts/oxfmt.md
+- 갱신: concepts/biome.md (경쟁 도구 비교 추가), index.md, overview.md
+- 플래시카드: 4장
+
+## [2026-04-09] ingest | Biome 마이그레이션 가이드
+- 소스: 무신사 코어 파트너프론트엔드 Confluence
+- 생성: sources/biome-migration-guide.md
+- 갱신: concepts/biome.md (마이그레이션 실무 + extends 제한 카드 추가), index.md, overview.md
+- 플래시카드: 1장 (biome extends 제한)
+
 ## [2026-04-09] ingest | Biome 마이그레이션 리포트
 - 소스: 무신사 코어 파트너프론트엔드 Confluence (Migrate to Biome Report)
 - 생성: sources/biome-migration-report.md, concepts/biome.md, concepts/monorepo-dx.md

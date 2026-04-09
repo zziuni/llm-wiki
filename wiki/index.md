@@ -13,12 +13,15 @@ updated: 2026-04-09
 - [[concepts/biome]] — Rust 기반 웹 개발 통합 린터/포매터
 - [[concepts/git-merge-strategies]] — Git merge 전략의 진화: resolve → recursive → ort
 - [[concepts/monorepo-dx]] — 모노레포 환경의 개발자 경험과 성능 병목
+- [[concepts/oxfmt]] — Oxc 기반 고성능 포매터 (Prettier ~30배, Biome ~2배 빠름)
 
 ## Entities
 - [[entities/elijah-newren]] — Git 핵심 개발자, ort merge 전략 설계·구현
 
 ## Sources
+- [[sources/biome-migration-guide]] — Biome 마이그레이션 실전 가이드 6단계 (수집일: 2026-04-09)
 - [[sources/biome-migration-report]] — ESLint+Prettier → Biome 마이그레이션 결과 보고서 (수집일: 2026-04-09)
 - [[sources/git-merge-strategy-ort]] — Git의 새로운 기본 Merge 전략 ort (수집일: 2026-04-09)
+- [[sources/oxfmt]] — Oxfmt 공식 문서 (수집일: 2026-04-09)
 
 ## Analyses
