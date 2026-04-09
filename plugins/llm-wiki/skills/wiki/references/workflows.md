@@ -1,5 +1,7 @@
 # Wiki Workflows
 
+> **경로 규칙**: 아래 모든 경로(`raw/`, `wiki/`)는 `$LLM_WIKI_ROOT` 기준 상대경로. 환경변수 미설정 시 CWD 기준.
+
 ## Ingest 상세 절차
 
 ```

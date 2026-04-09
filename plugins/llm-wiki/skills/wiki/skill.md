@@ -12,6 +12,16 @@ references:
 
 이 스킬은 Karpathy LLM Wiki 패턴의 핵심 로직을 정의한다. 모든 위키 커맨드(/ingest, /query, /lint, /flashcard, /save, /autoresearch)가 이 스킬의 규칙을 따른다.
 
+## 경로 규칙 (Path Resolution)
+
+모든 위키 경로(`raw/`, `wiki/`)는 **`$LLM_WIKI_ROOT`** 환경변수 기준으로 해석한다.
+
+- **설정됨**: `$LLM_WIKI_ROOT/wiki/index.md`, `$LLM_WIKI_ROOT/raw/` 등 절대경로 사용
+- **미설정**: CWD가 위키 프로젝트 root인 것으로 간주 (기존 동작과 동일)
+
+이 규칙은 user scope 플러그인으로 다른 프로젝트에서 호출할 때 위키 root를 올바르게 찾기 위함이다.
+`/wiki` 커맨드에서 환경변수 설정 방법을 안내한다.
+
 ## 핵심 원칙
 
 1. **raw/ 불변**: 원본 소스는 절대 수정하지 않는다

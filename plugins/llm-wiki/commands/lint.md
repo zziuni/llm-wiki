@@ -8,6 +8,8 @@ user_invocable: true
 
 위키의 구조적/내용적 건강 상태를 점검하고 개선점을 리포트한다.
 
+> **경로 기준**: 모든 `raw/`, `wiki/` 경로는 `$LLM_WIKI_ROOT` 기준. 미설정 시 CWD. 상세는 wiki skill의 "경로 규칙" 참조.
+
 ## 검사 항목
 
 ### 1. 구조적 검사 (Obsidian CLI)
