@@ -1,0 +1,31 @@
+{
+  "name": "llm-wiki-marketplace",
+  "owner": {
+    "name": "zziuni"
+  },
+  "metadata": {
+    "description": "LLM Wiki 프로젝트용 Claude Code 플러그인 모음",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "llm-wiki",
+      "source": "./plugins/llm-wiki",
+      "description": "Karpathy LLM Wiki pattern — Claude Code가 Obsidian 위키를 점진적으로 구축/유지하는 플러그인",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": [
+        "llm-wiki",
+        "obsidian",
+        "knowledge-base",
+        "flashcard",
+        "spaced-repetition"
+      ],
+      "tags": [
+        "knowledge-management",
+        "wiki",
+        "obsidian"
+      ]
+    }
+  ]
+}
