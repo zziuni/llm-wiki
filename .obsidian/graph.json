@@ -44,8 +44,10 @@
     }
   ],
   "collapse-display": false,
-  "lineSizeMultiplier": 1,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
   "collapse-forces": false,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
