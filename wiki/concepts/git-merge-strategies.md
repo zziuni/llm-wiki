@@ -62,7 +62,7 @@ git merge --strategy recursive branch    # 명시적으로 recursive 지정
 - [[elijah-newren]]
 
 ## Flashcards
-#flashcard
+#flashcards
 
 ort는 무엇의 약자인가?::Ostensibly Recursive's Twin (표면적으로 recursive의 쌍둥이)
 
@@ -73,3 +73,8 @@ ort가 recursive보다 빠른 핵심 이유::index/working tree를 건드리지 
 ort의 복잡한 머지 성능 향상 배수::==500==배, rebase는 ==9,000==배
 
 Git 2.34부터 기본 merge 전략은 ==ort==이다.
+
+recursive 전략이 16년간 사용된 후 교체된 근본 원인은?::코드베이스가 패치 누적으로 수정 불가능한 상태에 도달했고, index/working tree에 직접 의존하여 최적화가 구조적으로 어려웠기 때문
+
+GitHub에서 ort 적용 후 rebase 소요 시간 변화는?::512시간 → 33시간으로 단축
+<!--SR:!2026-04-10,1,230-->

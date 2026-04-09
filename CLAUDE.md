@@ -108,7 +108,7 @@ Obsidian Spaced Repetition 플러그인 호환. 위키 페이지 안에 인라�
 
 ```markdown
 ## Flashcards
-#flashcard
+#flashcards
 
 정의/사실 질문::답변
 

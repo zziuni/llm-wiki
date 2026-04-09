@@ -45,7 +45,7 @@ args: "[페이지명|review-stats|generate-from 주제]"
 
 ```markdown
 ## Flashcards
-#flashcard
+#flashcards
 
 카드1::답변1
 

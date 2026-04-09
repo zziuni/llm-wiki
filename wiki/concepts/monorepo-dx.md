@@ -58,7 +58,7 @@ status: active
 - [[sources/biome-migration-report]] — 실측 데이터 원본
 
 ## Flashcards
-#flashcard
+#flashcards
 
 모노레포에서 Node.js 기반 린터의 주요 병목 2가지는?::1) 파일 수에 비례하는 config resolution 비용 증가 2) 워크스페이스 수에 비례하는 메모리(힙) 사용량 증가로 OOM 위험
 

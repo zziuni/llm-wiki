@@ -18,7 +18,7 @@
 - [[관련페이지2]]
 
 ## Flashcards
-#flashcard
+#flashcards
 
 카드들...
 ```

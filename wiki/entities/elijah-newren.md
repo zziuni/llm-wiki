@@ -27,8 +27,12 @@ Git의 핵심 개발자 중 한 명. [[git-merge-strategies#ort 전략|ort merge
 - [[sources/git-merge-strategy-ort]]
 
 ## Flashcards
-#flashcard
+#flashcards
 
 Git ort merge 전략을 주도적으로 설계·구현한 개발자::Elijah Newren
 
 Elijah Newren이 ort 최적화 과정을 기록한 블로그 시리즈:::Palantir 블로그, "Optimizing Git's Merge Machinery" 6편
+
+Elijah Newren이 recursive를 수정하다가 완전 재작성으로 방향을 전환한 계기는?::Junio Hamano(Git 메인테이너)의 제안으로, 기존 코드에 큰 변경을 시도하기보다 처음부터 새로 작성하는 방향으로 전환
+
+==Elijah Newren==은 Git의 ort merge 전략을 처음부터 재작성한 핵심 개발자다.

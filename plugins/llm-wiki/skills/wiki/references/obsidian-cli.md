@@ -47,7 +47,7 @@ obsidian orphans                # 고아 페이지 (링크 없음)
 
 ```bash
 obsidian tags                       # 전체 태그 목록
-obsidian tag tag="#flashcard"       # 특정 태그의 파일 목록
+obsidian tag tag="#flashcards"       # 특정 태그의 파일 목록
 obsidian tags:rename old=x new=y   # 태그 일괄 변경
 ```
 
