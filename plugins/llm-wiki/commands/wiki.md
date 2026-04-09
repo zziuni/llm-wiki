@@ -1,5 +1,4 @@
 ---
-name: wiki
 description: 위키 부트스트랩 및 상태 확인
 user_invocable: true
 ---

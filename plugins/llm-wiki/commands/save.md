@@ -1,5 +1,4 @@
 ---
-name: save
 description: 현재 대화를 위키 노트로 저장
 user_invocable: true
 args: "[이름]"

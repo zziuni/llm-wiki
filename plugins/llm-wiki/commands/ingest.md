@@ -1,5 +1,4 @@
 ---
-name: ingest
 description: 소스 파일을 위키에 수집
 user_invocable: true
 args: "[파일경로]"

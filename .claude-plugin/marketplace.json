@@ -1,7 +1,8 @@
 {
   "name": "llm-wiki-marketplace",
   "owner": {
-    "name": "zziuni"
+    "name": "zziuni",
+    "email": "zziuni@gmail.com"
   },
   "metadata": {
     "description": "LLM Wiki 프로젝트용 Claude Code 플러그인 모음",

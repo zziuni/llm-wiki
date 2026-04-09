@@ -1,5 +1,4 @@
 ---
-name: autoresearch
 description: 자율 연구 루프 — 웹 검색 → 수집 → 합성 반복
 user_invocable: true
 args: "[주제]"

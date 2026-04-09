@@ -1,5 +1,4 @@
 ---
-name: query
 description: 위키를 검색하고 답변을 합성
 user_invocable: true
 args: "[질문]"

@@ -1,5 +1,4 @@
 ---
-name: flashcard
 description: 플래시카드 생성, 보강, 통계
 user_invocable: true
 args: "[페이지명|review-stats|generate-from 주제]"

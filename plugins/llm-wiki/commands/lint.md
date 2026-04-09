@@ -1,5 +1,4 @@
 ---
-name: lint
 description: 위키 건강검진
 user_invocable: true
 ---
