@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence",
+      "path": "raw/Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence.md"
+    },
+    {
       "basename": "hot",
       "path": "wiki/hot.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "biome",
       "path": "wiki/concepts/biome.md"
-    },
-    {
-      "basename": "Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence",
-      "path": "raw/Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence.md"
     },
     {
       "basename": "overview",
