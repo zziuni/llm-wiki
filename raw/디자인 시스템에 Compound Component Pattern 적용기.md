@@ -13,11 +13,7 @@ tags:
 
 Get unlimited access to the best of Medium for less than $1/week.[Become a member](https://medium.com/plans?source=upgrade_membership---post_top_nav_upsell-----------------------------------------)
 
-[
-
-Become a member
-
-](https://medium.com/plans?source=upgrade_membership---post_top_nav_upsell-----------------------------------------)
+[Become a member](https://medium.com/plans?source=upgrade_membership---post_top_nav_upsell-----------------------------------------)
 
 ## [Corca](https://medium.com/corca?source=post_page---publication_nav-66a4ff2060a1-020c68df289e---------------------------------------)
 
@@ -227,7 +223,7 @@ Th 컴포넌트 이미지 예시
 
 Th 컴포넌트를 다음과 같이 개발했습니다.
 
-```hs
+```typescript
 import { ReactElement, ReactNode, cloneElement } from 'react';
 import styled from '@emotion/styled';
 import { FixedCellType, type TdSizeType } from './Td';
@@ -333,7 +329,7 @@ const CheckboxTableHeader = styled(TableHeader)\`
 
 다음의 코드를 살펴보면, 모든 요구 사항을 props로 받고 있지 않은 것을 확인할 수 있습니다. 와이어프레임에 따라 원하는 테이블 UI를 그려내기 위해 여러 하위 컴포넌트들이 조합되고 있는 것을 확인할 수 있습니다.
 
-```hs
+```ts
 // CampaignListTable.tsx
 
 import Table from '@corca-ai/design-system';
@@ -365,7 +361,9 @@ export function CampaignListTable({
   );
 }
 ```
-```hs
+
+
+```ts
 //CampaignTableHeader.tsx
 
 import { useTranslation } from 'next-i18next';
@@ -442,9 +440,11 @@ export function CampaignTableHeader({
 }
 ```
 
-컴포넌트를 조합하여 사용하는 방식의 장점은 특히 Td 컴포넌트에서 잘 들어납니다. 짧게 <td> 태그에 대해서 설명 드리자면, HTML 테이블에서 하나의 데이터 셀(data cell)을 정의할 때 사용되는 태그랍니다.
+
+컴포넌트를 조합하여 사용하는 방식의 장점은 특히 Td 컴포넌트에서 잘 들어납니다. 짧게 td 태그에 대해서 설명 드리자면, HTML 테이블에서 하나의 데이터 셀(data cell)을 정의할 때 사용되는 태그랍니다.
 
 Td 컴포넌트는 가장 디자인 요구사항이 복잡한 컴포넌트였습니다.
+
 
 데이터 셀에 들어가는 아이템 종류(e.g. text, image, icon, button 등)에 따라서 padding, width, ellipsis, vertical-align 등이 모두 달랐습니다.
 
@@ -452,11 +452,13 @@ Td 컴포넌트는 가장 디자인 요구사항이 복잡한 컴포넌트였습
 
 합성 컴포넌트 디자인 패턴을 적용하기 전에는 하나의 Td 컴포넌트로 모든 사항을 props로 입력받아 처리하도록 개발 했습니다. 하지만 다른 종류의 데이터 셀 개발을 요청 받을 때마다 최초로 개발된 Td 컴포넌트를 수정하며 코드 확장성의 한계를 경험할 수 있었습니다. 또한 과도한 props의 개수는 DX(Developer Experience)를 저하했습니다. 따라서 테이블 컴포넌트가 필요한 상황에서 적합한 하위 컴포넌트를 조합하여 사용하도록 `TextTd, ImgTd, BadgeTd, SwitchTd, SelectTd, CheckboxTd, RadioTd, IconTd` 로 컴포넌트 별 역할을 분리하여 개발했습니다.
 
+
 **😎 이제 또 다른 데이터 셀 컴포넌트 디자인 요청이 들어오더라도 두렵지 않습니다. 000Td 컴포넌트만 개발하여 추가하고, 기존 코드는 전혀 수정할 필요가 없기 때문이죠!**
 
 Td 컴포넌트가 어떻게 프로젝트에서 사용되는지 아래 코드에서 확인해보실 수 있습니다.
 
-```hs
+
+```ts
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Switch, Table } from '@corca-ai/design-system';
@@ -488,7 +490,7 @@ return (
             cursorPointer
             key={id + 'CampaignItems'}
             onClick={() => {
-              router.push(\`${PageURL.CAMPAIGN}/${id}\`);
+              router.push(\`${PageURL.CAMPAIGN}/${id}`);
             }}
           >
             <Table.Td.Img size={TD_SIZE} src={image} />
@@ -550,7 +552,7 @@ return (
 
 상속은 객체지향 프로그래밍(OOP)의 중요한 4개 특징 중 하나 입니다. 상속과 합성(Composition, OOP에서는 조합으로 불리기도 합니다.)은 모두 객체들의 관계를 나타내는 중요한 개념입니다.
 
-```hs
+```ts
 class Mobile {
     brand: string;
     model: string;
@@ -610,7 +612,7 @@ A 클래스가 B 클래스의 기능이 필요한 경우에 꼭 상속하지 않
 
 출처 — [https://www.adservio.fr/post/composition-vs-inheritance](https://www.adservio.fr/post/composition-vs-inheritance)
 
-```hs
+```ts
 class Engine {
     engineType: string;
 
@@ -627,11 +629,11 @@ constructor(engine: Engine) {
     }
 
 drive() {
-        console.log(\`${this.engine.engineType} 엔진으로 드라이브 실행.\`);
+        console.log(\`${this.engine.engineType} 엔진으로 드라이브 실행.`);
     }
 
 brakes() {
-        console.log(\`${this.engine.engineType} 엔진으로 브레이크 실행.\`);
+        console.log(\`${this.engine.engineType} 엔진으로 브레이크 실행.`);
     }
 }
 
