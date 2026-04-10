@@ -1,0 +1,17 @@
+{
+  "attachmentFolderPath": "raw/assets",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "raw",
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": false,
+  "alwaysUpdateLinks": true,
+  "promptDelete": false,
+  "defaultViewMode": "source",
+  "userIgnoreFilters": [
+    ".claude",
+    ".git",
+    ".gitignore",
+    ".llm-wiki-meta.json",
+    "CLAUDE.md"
+  ]
+}
