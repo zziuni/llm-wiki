@@ -1,6 +1,7 @@
 ---
 type: overview
 summary: "위키 전체 페이지 카탈로그 — 쿼리 시 첫 번째로 참조"
+created: 2026-04-09
 updated: 2026-04-10
 ---
 

@@ -1,9 +1,16 @@
 ---
-title: "mcp-atlassian fakeredis 호환성 버그 해결"
 type: analysis
+summary: "fakeredis 2.32+ FakeConnection→FakeAsyncRedisConnection rename으로 MCP 크래시. docket/_redis.py 패치로 해결"
+tags:
+  - mcp
+  - atlassian
+  - fakeredis
+  - pydocket
+  - bug-fix
+  - devtools
 created: 2026-04-10
-tags: [mcp, atlassian, fakeredis, pydocket, bug-fix, devtools]
-related: ["[[codebase-improvement-roadmap]]"]
+updated: 2026-04-10
+status: active
 ---
 
 # mcp-atlassian fakeredis 호환성 버그 해결
@@ -50,3 +57,7 @@ find ~/.cache/uv/archive-v0 -name "_redis.py" -path "*/docket/*" \
 ## 테스트 스크립트
 
 `scripts/test-mcp-atlassian.py` — MCP stdio 프로토콜로 직접 JSON-RPC 통신 테스트
+
+## Related
+
+- [[codebase-improvement-roadmap]] — 코드베이스 개선 로드맵

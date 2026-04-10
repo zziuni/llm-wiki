@@ -1,11 +1,17 @@
 ---
-title: "PDP 현황 분석"
 type: analysis
+summary: "PDP 현황 분석: 번들 908KB, fetchProductDetail 코드 7회 호출, ProductDetailContext 64개 구독자, 3가지 페칭 패턴 혼재"
 domain: pdp
+tags:
+  - pdp
+  - performance
+  - architecture
+  - product-detail
+sources:
+  - "_docs/goalArchitecture/pdp-restructure/pdp-problem-analysis.md"
 created: 2026-04-09
 updated: 2026-04-10
-source: "_docs/goalArchitecture/pdp-restructure/pdp-problem-analysis.md"
-tags: [pdp, performance, architecture, product-detail]
+status: active
 ---
 
 # PDP 현황 분석

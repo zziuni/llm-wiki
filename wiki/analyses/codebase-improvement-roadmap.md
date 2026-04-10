@@ -1,9 +1,14 @@
 ---
-title: "코드베이스 개선 로드맵 구조"
 type: analysis
+summary: "5개 워크스트림(아키텍처/코드품질/구조경량화/플랫폼현대화/AI Harness) × 4단계 타임라인, 추가 식별 과제 10건"
+tags:
+  - roadmap
+  - architecture
+  - codebase-optimization
+  - planning
 created: 2026-04-10
-tags: [roadmap, architecture, codebase-optimization, planning]
-related: ["[[composition-two-axes]]", "[[hook-chaining-analysis]]", "[[pdp-problem-analysis]]", "[[pdp-restructure-hld]]"]
+updated: 2026-04-10
+status: active
 ---
 
 # 코드베이스 개선 로드맵 구조
@@ -54,3 +59,10 @@ D-3(Ruler 린트) → D-4(Emotion 마이그레이션)
 ## 상세 문서 위치
 
 `_docs/goalArchitecture/codebase-improvement-roadmap.md`
+
+## Related
+
+- [[composition-two-axes]] — Composition의 두 축 개념
+- [[hook-chaining-analysis]] — God Hook 현황 분석
+- [[pdp-problem-analysis]] — PDP 현황 분석
+- [[pdp-restructure-hld]] — PDP 분리 HLD

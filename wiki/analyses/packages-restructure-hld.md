@@ -1,10 +1,17 @@
 ---
-title: "Packages 구조 재편 HLD 분석"
 type: analysis
+summary: "packages 구조 재편: barrel 평면화 5기준, 단일앱 21→5개 검증, domain-service 독립 분리"
+tags:
+  - architecture
+  - packages
+  - barrel-index
+  - migration
+  - monorepo
+sources:
+  - "_docs/goalArchitecture/packages-restructure/"
 created: 2026-04-09
 updated: 2026-04-10
-tags: [architecture, packages, barrel-index, migration, monorepo]
-related: ["[[codebase-improvement-roadmap]]"]
+status: active
 ---
 
 # Packages 구조 재편 HLD 분석
@@ -93,3 +100,7 @@ apps → ui-component → domain-service → api + infra → helper + shared
 ---
 
 > 원본 문서: `_docs/goalArchitecture/packages-restructure/` (digest, HLD, migration-plan)
+
+## Related
+
+- [[codebase-improvement-roadmap]] — 코드베이스 개선 로드맵

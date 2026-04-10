@@ -7,7 +7,7 @@ tags:
   - rust
   - oxc
 sources:
-  - "[[oxfmt]]"
+  - "https://oxc.rs/docs/guide/usage/formatter.html"
 created: 2026-04-09
 updated: 2026-04-09
 status: active

@@ -1,11 +1,18 @@
 ---
-title: "PDP 분리 및 구조 개선 HLD"
 type: analysis
+summary: "PDP 분리 HLD: home→pdp 앱 분리, product review 통합, mental model 기반 계층 개선"
 domain: pdp
+tags:
+  - pdp
+  - hld
+  - architecture
+  - migration
+  - app-separation
+sources:
+  - "_docs/goalArchitecture/pdp-restructure/hdl.md"
 created: 2026-04-09
 updated: 2026-04-10
-source: "_docs/goalArchitecture/pdp-restructure/hdl.md"
-tags: [pdp, hld, architecture, migration, app-separation]
+status: active
 ---
 
 # PDP 분리 및 구조 개선 HLD

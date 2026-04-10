@@ -1,9 +1,15 @@
 ---
-title: "29CM Frontend Hook 체이닝 현황 분석"
 type: analysis
+summary: "God Hook 현황(usePurchase 21 hooks 등), 깊이/관심사/방향 경계 조건 3가지, 피처 간 의존 문제"
+tags:
+  - react
+  - hooks
+  - god-hook
+  - code-quality
+  - anti-pattern
 created: 2026-04-10
-tags: [react, hooks, god-hook, code-quality, anti-pattern]
-related: ["[[composition-two-axes]]", "[[codebase-improvement-roadmap]]", "[[pdp-problem-analysis]]"]
+updated: 2026-04-10
+status: active
 ---
 
 # 29CM Frontend Hook 체이닝 현황 분석
@@ -68,3 +74,9 @@ const PurchaseSection = ({ itemNo }) => {
 
 - 코드베이스 전체에서 **진짜 Compound Component는 InfoTable 1개뿐**
 - 적용 후보: ShareTypeSelector(11 props), BffRecommendationCarouselMain(11 props), CommonLayout(7 hide props)
+
+## Related
+
+- [[composition-two-axes]] — Composition의 두 축 개념
+- [[codebase-improvement-roadmap]] — 코드베이스 개선 로드맵
+- [[pdp-problem-analysis]] — PDP 현황 분석

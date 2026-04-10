@@ -114,3 +114,9 @@ updated: 2026-04-10
 - **병합**: log.md (CWD 로그 엔트리 4건 추가)
 - **갱신**: overview.md (통계·테마 갱신)
 - **원인**: $LLM_WIKI_ROOT 규칙 이전에 CWD 기준으로 wiki/ 생성됨
+
+## [2026-04-10] lint | 병합 파일 표준화
+
+- **Critical 3건 수정**: composition-two-axes frontmatter 표준화 + Flashcards 4장 생성, analyses 6개 frontmatter 표준화(title 제거, summary/status 추가, source→sources, related→본문), overview 플래시카드 수 64→68장(+4 composition-two-axes)
+- **Warning 3건 수정**: oxfmt-official-docs sources 필드 URL로 변경, index.md created 추가, analyses 3개 updated 추가
+- **통계**: 총 34페이지, 고아 0, 깨진 링크 0, 플래시카드 68장
