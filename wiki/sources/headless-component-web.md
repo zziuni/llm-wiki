@@ -6,7 +6,8 @@ tags:
   - design-pattern
   - accessibility
   - typescript
-sources: []
+sources:
+  - "웹 수집 (raw 파일 없음)"
 created: 2026-04-09
 updated: 2026-04-09
 status: active

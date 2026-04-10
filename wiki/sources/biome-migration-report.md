@@ -9,7 +9,7 @@ tags:
   - dx
   - migration
 sources:
-  - "[[Migrate to Biome Report - 코어 파트너프론트엔드 - Confluence]]"
+  - "Migrate to Biome Report (코어 파트너프론트엔드 Confluence)"
 created: 2026-04-09
 updated: 2026-04-09
 status: active

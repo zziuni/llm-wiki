@@ -8,7 +8,7 @@ tags:
   - migration
   - monorepo
 sources:
-  - "[[Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence]]"
+  - "Biome 마이그레이션 가이드 (코어 파트너프론트엔드 Confluence)"
 created: 2026-04-09
 updated: 2026-04-09
 status: active
