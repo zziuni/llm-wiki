@@ -10,13 +10,14 @@ status: active
 
 # Overview
 
-프론트엔드 개발 도구와 패턴에 대한 지식 위키. 두 가지 주요 테마를 다룬다.
+소프트웨어 엔지니어링 지식 위키. 개발 도구, 컴포넌트 패턴, CI/CD, 클라우드 서비스 모델을 다룬다.
 
 ## 현재 상태
-- 소스: 7건
-- 개념 페이지: 7건
+- 소스: 11건
+- 개념 페이지: 11건
 - 엔티티 페이지: 2건
-- 플래시카드: 41장
+- 분석 페이지: 6건
+- 플래시카드: 61장
 
 ## 주요 테마
 
@@ -41,3 +42,13 @@ Git의 merge 전략이 resolve → recursive → ort로 진화하고([[git-merge
 - [[oxfmt]]는 Prettier 대비 ~30배, [[biome]] 대비 ~2배 빠르지만, 린터 미포함으로 포지셔닝이 다름
 - Compound Component 패턴은 Radix UI, shadcn/ui, Material UI 등 현대 React 라이브러리의 사실상 표준
 - Context 기반 상태 공유의 성능 이슈는 Split Context(상태/액션 분리)로 해결
+
+### 3. 29CM 코드베이스 분석
+
+[[pdp-problem-analysis]]에서 PDP 번들 908KB, fetchProductDetail 코드 7회 호출, ProductDetailContext 64개 구독자 등 정량 분석. [[pdp-restructure-hld]]로 home→pdp 앱 분리와 product review 통합 설계. [[hook-chaining-analysis]]에서 God Hook 패턴(usePurchase 21 hooks 등)과 3가지 경계 조건 도출.
+
+[[composition-two-axes]]는 Hook Composition(내부/블랙박스)과 Compound Component(외부/화이트박스)의 근본적 차이를 개념화. [[packages-restructure-hld]]에서 barrel 평면화 5기준과 단일앱 패키지 21→5개 검증. 전체를 [[codebase-improvement-roadmap]]로 5개 워크스트림 × 4단계 타임라인으로 종합.
+
+### 4. 클라우드 서비스 모델
+
+[[saas]]를 중심으로 클라우드 서비스 모델(IaaS/PaaS/SaaS)의 정의와 특성을 정리. SaaS 비즈니스 메트릭(MRR, LTV, CAC, NRR 등)과 Microsoft의 4단계 성숙도 모델(멀티테넌시·확장성·구성 가능성 축)까지 다룸.
