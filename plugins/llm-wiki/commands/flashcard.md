@@ -8,7 +8,7 @@ args: "[페이지명|review-stats|generate-from 주제]"
 
 위키 페이지의 플래시카드를 생성, 보강, 관리한다.
 
-> **경로 기준**: 모든 `raw/`, `wiki/` 경로는 `$LLM_WIKI_ROOT` 기준. 미설정 시 CWD. 상세는 wiki skill의 "경로 규칙" 참조.
+> **경로 기준**: 모든 `raw/`, `wiki/` 경로는 `$LLM_WIKI_ROOT` 기준. **미설정 시 동작 중단** — wiki skill의 "가드 절차" 참조.
 
 ## 사용법
 

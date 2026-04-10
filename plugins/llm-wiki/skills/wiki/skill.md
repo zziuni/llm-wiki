@@ -17,10 +17,24 @@ references:
 모든 위키 경로(`raw/`, `wiki/`)는 **`$LLM_WIKI_ROOT`** 환경변수 기준으로 해석한다.
 
 - **설정됨**: `$LLM_WIKI_ROOT/wiki/index.md`, `$LLM_WIKI_ROOT/raw/` 등 절대경로 사용
-- **미설정**: CWD가 위키 프로젝트 root인 것으로 간주 (기존 동작과 동일)
+- **미설정 → 즉시 중단**: 환경변수가 없으면 플러그인의 모든 동작을 중단하고, 설정 방법을 안내한다
 
-이 규칙은 user scope 플러그인으로 다른 프로젝트에서 호출할 때 위키 root를 올바르게 찾기 위함이다.
-`/wiki` 커맨드에서 환경변수 설정 방법을 안내한다.
+### 가드 절차 (모든 커맨드 진입 시 필수)
+
+1. `echo $LLM_WIKI_ROOT`로 환경변수 확인
+2. 비어 있으면 아래 메시지를 출력하고 **동작을 중단**한다:
+
+```
+⚠ $LLM_WIKI_ROOT 환경변수가 설정되지 않았습니다.
+
+셸 프로필(~/.zshrc 등)에 아래를 추가하세요:
+  export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
+
+또는 현재 세션에서만 설정:
+  ! export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
+```
+
+> **CWD fallback 없음**: 환경변수 없이 CWD를 root로 추론하지 않는다. 다른 프로젝트에서 호출 시 엉뚱한 디렉토리에 파일을 쓰는 사고를 방지하기 위함.
 
 ## 핵심 원칙
 

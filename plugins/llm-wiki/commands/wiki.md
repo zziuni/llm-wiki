@@ -9,7 +9,7 @@ user_invocable: true
 
 ## 절차
 
-### 0. 위키 Root 확인
+### 0. 위키 Root 확인 (필수)
 
 환경변수 `$LLM_WIKI_ROOT`로 위키 프로젝트 경로를 결정한다.
 
@@ -18,17 +18,16 @@ echo $LLM_WIKI_ROOT
 ```
 
 - **설정됨**: 해당 경로를 위키 root로 사용. 이후 모든 경로는 이 root 기준.
-- **미설정 + CWD에 `wiki/index.md` 존재**: CWD를 위키 root로 사용 (프로젝트 내 실행).
-- **미설정 + CWD에 `wiki/index.md` 없음**: 사용자에게 안내:
+- **미설정 → 즉시 중단**: 아래 메시지를 출력하고 동작을 멈춘다.
 
 ```
-위키 root를 찾을 수 없습니다. 다음 중 하나를 실행하세요:
+⚠ $LLM_WIKI_ROOT 환경변수가 설정되지 않았습니다.
 
-# 방법 1: 환경변수 설정 (셸 프로필에 추가)
-export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
+셸 프로필(~/.zshrc 등)에 아래를 추가하세요:
+  export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
 
-# 방법 2: 이 프로젝트 디렉토리에서 실행
-cd ~/path/to/llm-wiki && claude
+또는 현재 세션에서만 설정:
+  ! export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
 ```
 
 위키 root가 확인되면 이후 모든 `raw/`, `wiki/` 경로는 해당 root 기준으로 절대경로를 사용한다.
