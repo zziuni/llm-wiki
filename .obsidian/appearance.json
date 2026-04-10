@@ -1,7 +1,8 @@
 {
   "accentColor": "",
-  "cssTheme": "",
+  "cssTheme": "Obsidian Nord",
   "enabledCssSnippets": [
     "vault-colors"
-  ]
+  ],
+  "theme": "system"
 }
