@@ -28,21 +28,33 @@ references:
 - **설정됨**: `$LLM_WIKI_ROOT/wiki/index.md`, `$LLM_WIKI_ROOT/raw/` 등 절대경로 사용
 - **미설정 → 즉시 중단**: 환경변수가 없으면 플러그인의 모든 동작을 중단하고, 설정 방법을 안내한다
 
-### 가드 절차 (모든 커맨드 진입 시 필수)
+### 가드 절차 (MANDATORY — 모든 커맨드 진입 시 최우선)
 
-1. `echo $LLM_WIKI_ROOT`로 환경변수 확인
-2. 비어 있으면 아래 메시지를 출력하고 **동작을 중단**한다:
+**위키 경로 해석은 반드시 `wiki-root.sh` 스크립트를 통한다.** 직접 경로를 구성하지 않는다.
 
-```
-⚠ $LLM_WIKI_ROOT 환경변수가 설정되지 않았습니다.
+1. 커맨드 진입 시 아래를 실행하여 위키 root를 확인한다:
 
-셸 프로필(~/.zshrc 등)에 아래를 추가하세요:
-  export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
-
-또는 현재 세션에서만 설정:
-  ! export LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
+```bash
+ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
 ```
 
+- 성공 → `$ROOT`를 이후 모든 경로의 base로 사용 (예: `$ROOT/wiki/index.md`)
+- 실패 → 스크립트가 에러를 출력하고 종료. **즉시 동작 중단.**
+
+2. 경로 해석이 필요할 때:
+
+```bash
+# 파일 경로 해석
+bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" wiki/concepts/page.md
+# → /absolute/path/to/wiki/concepts/page.md
+
+# 디렉토리 생성 (mkdir 직접 사용 금지)
+bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
+# → 복수 인자 가능: --ensure-dir raw/ wiki/concepts/ wiki/entities/
+```
+
+> **금지**: `mkdir -p wiki/...`, `Write wiki/...` 같은 CWD 기준 상대경로 직접 사용
+> **필수**: 항상 `wiki-root.sh`가 반환한 절대경로 사용
 > **CWD fallback 없음**: 환경변수 없이 CWD를 root로 추론하지 않는다. 다른 프로젝트에서 호출 시 엉뚱한 디렉토리에 파일을 쓰는 사고를 방지하기 위함.
 
 ## 핵심 원칙

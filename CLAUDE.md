@@ -8,7 +8,7 @@ Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재�
 
 ## Obsidian Vault
 
-**프로젝트 root = Obsidian vault.** `.obsidian/`이 root에 위치.
+**코드와 데이터가 분리되어 있다.** 이 저장소는 플러그인 코드만 포함. 위키 데이터(raw/, wiki/)는 `$LLM_WIKI_ROOT` 환경변수가 가리키는 별도 저장소에 위치한다.
 
 - `raw/` — **사용자 영역**: Obsidian에서 소스 추가 (Web Clipper, 드래그&드롭). LLM은 읽기만.
 - `wiki/` — **LLM 영역**: LLM이 작성/유지. 사용자는 Obsidian에서 브라우징.
@@ -164,6 +164,12 @@ obsidian read file="페이지명"
 ## Plugin
 
 위키 작업은 `plugins/llm-wiki/` 플러그인이 담당한다. 스키마의 Single Source of Truth는 플러그인의 `skills/wiki/skill.md` + `references/`.
+
+**위키 경로 해석**: 모든 `raw/`, `wiki/` 경로는 `wiki-root.sh` 스크립트를 통해 해석한다. CWD 기반 상대경로 사용 금지.
+```bash
+ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
+# 이후 $ROOT/wiki/index.md, $ROOT/raw/ 등 절대경로 사용
+```
 
 ## Conventions
 

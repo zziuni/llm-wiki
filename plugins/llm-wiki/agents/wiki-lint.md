@@ -20,6 +20,13 @@ tools:
 4. **플래시카드**: ## Flashcards 없는 active 개념 페이지, 카드 문법 오류
 5. **인덱스**: index.md 정합성
 
+## 주의사항
+
+- **경로 해석**: 모든 `raw/`, `wiki/` 경로는 `wiki-root.sh` 스크립트로 해석한다. 상대경로 직접 사용 금지.
+  ```bash
+  ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
+  ```
+
 ## 출력
 
 Critical / Warning / Info 카테고리로 분류된 리포트와 통계.

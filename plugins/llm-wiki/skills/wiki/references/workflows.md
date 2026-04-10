@@ -1,6 +1,9 @@
 # Wiki Workflows
 
-> **경로 규칙**: 아래 모든 경로(`raw/`, `wiki/`)는 `$LLM_WIKI_ROOT` 기준 상대경로. 환경변수 미설정 시 동작 중단 (wiki skill의 "가드 절차" 참조).
+> **경로 규칙**: 아래 모든 `raw/`, `wiki/` 경로는 `wiki-root.sh` 스크립트로 해석한다. 직접 상대경로를 사용하지 않는다.
+> ```bash
+> ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")  # 모든 커맨드 진입 시 필수
+> ```
 > **플러그인 경로**: scaffold, 마이그레이션 등 플러그인 리소스는 `${CLAUDE_PLUGIN_ROOT}` 기준.
 
 ## Vault 부트스트랩 절차
@@ -10,7 +13,8 @@ Trigger: /wiki 실행 시 $LLM_WIKI_ROOT/.obsidian/ 미존재
 
 1. ${CLAUDE_PLUGIN_ROOT}/scaffold/.obsidian/ → $LLM_WIKI_ROOT/.obsidian/ 복사
 2. ${CLAUDE_PLUGIN_ROOT}/scaffold/.gitignore → $LLM_WIKI_ROOT/.gitignore 복사 (이미 있으면 건너뜀)
-3. 디렉토리 생성: raw/, raw/assets/, wiki/concepts/, wiki/entities/, wiki/sources/, wiki/analyses/
+3. 디렉토리 생성 (wiki-root.sh 사용):
+   bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" --ensure-dir raw/ raw/assets/ wiki/concepts/ wiki/entities/ wiki/sources/ wiki/analyses/
 4. 핵심 파일 초기화: wiki/index.md, wiki/log.md, wiki/hot.md, wiki/overview.md
 5. .llm-wiki-meta.json 생성 (현재 플러그인 schemaVersion)
 6. 커뮤니티 플러그인 수동 설치 안내 출력
