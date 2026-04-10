@@ -55,6 +55,19 @@ Obsidian 콜아웃으로 특수 정보 표시:
 - 공백 대신 하이픈
 - 너무 길지 않게 (50자 이하)
 
+### 디렉토리별 네이밍 (충돌 방지)
+
+Obsidian은 shortest path로 wikilink를 해석하므로, **서브디렉토리가 달라도 base filename이 같으면 링크가 모호해진다.** 이를 방지하기 위해 디렉토리별 네이밍 기준을 다르게 한다:
+
+| 디렉토리 | 네이밍 기준 | 예시 |
+|----------|-----------|------|
+| `concepts/` | 개념 이름 | `compound-component-pattern.md` |
+| `entities/` | 인물/조직 이름 | `junio-hamano.md` |
+| `sources/` | **출처-주제** | `corca-compound-component.md` |
+| `analyses/` | 질문/분석 주제 | `monorepo-vs-polyrepo.md` |
+
+**핵심 규칙**: `sources/` 파일명은 반드시 출처(저자, 사이트, 조직)를 포함하여 `concepts/`와 충돌을 방지한다.
+
 ## 소스 인용
 
 본문에서 소스를 인용할 때:

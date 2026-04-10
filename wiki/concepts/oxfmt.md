@@ -8,7 +8,7 @@ tags:
   - oxc
   - toolchain
 sources:
-  - "[[sources/oxfmt]]"
+  - "[[sources/oxfmt-official-docs]]"
 created: 2026-04-09
 updated: 2026-04-09
 status: active
@@ -58,7 +58,7 @@ pnpm add -D oxfmt
 
 - [[biome]] — 경쟁 도구 (포매터+린터 통합)
 - [[monorepo-dx]] — 대규모 코드베이스 포매팅 성능이 DX에 미치는 영향
-- [[sources/oxfmt]] — 원본 소스
+- [[sources/oxfmt-official-docs]] — 원본 소스
 
 ## Flashcards
 #flashcards
