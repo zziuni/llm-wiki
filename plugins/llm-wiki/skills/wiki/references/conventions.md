@@ -74,3 +74,10 @@ Obsidian은 shortest path로 wikilink를 해석하므로, **서브디렉토리�
 ```markdown
 According to [[sources/paper-name]], "직접 인용" (p.42).
 ```
+
+## 운영 규칙
+
+- **로그 형식**: `## [YYYY-MM-DD] verb | Title` — grep 파서블
+- **이미지/첨부**: `raw/assets/`에 저장 (Obsidian `attachmentFolderPath` 설정과 일치)
+- **`wiki/hot.md`**: gitignored — 없으면 새로 생성. 세션 시작 시 읽고, 종료 시 갱신
+- **Obsidian CLI fallback**: CLI 실패 시 (앱 미실행 등) Read/Write/Edit tool로 fallback

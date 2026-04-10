@@ -1,6 +1,7 @@
 {
   "name": "llm-wiki",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "schemaVersion": 1,
   "description": "Karpathy LLM Wiki pattern — Claude Code가 Obsidian 위키를 점진적으로 구축/유지하는 플러그인",
   "author": {
     "name": "zziuni"

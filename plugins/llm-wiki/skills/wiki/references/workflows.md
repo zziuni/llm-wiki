@@ -1,6 +1,35 @@
 # Wiki Workflows
 
 > **경로 규칙**: 아래 모든 경로(`raw/`, `wiki/`)는 `$LLM_WIKI_ROOT` 기준 상대경로. 환경변수 미설정 시 동작 중단 (wiki skill의 "가드 절차" 참조).
+> **플러그인 경로**: scaffold, 마이그레이션 등 플러그인 리소스는 `${CLAUDE_PLUGIN_ROOT}` 기준.
+
+## Vault 부트스트랩 절차
+
+```
+Trigger: /wiki 실행 시 $LLM_WIKI_ROOT/.obsidian/ 미존재
+
+1. ${CLAUDE_PLUGIN_ROOT}/scaffold/.obsidian/ → $LLM_WIKI_ROOT/.obsidian/ 복사
+2. ${CLAUDE_PLUGIN_ROOT}/scaffold/.gitignore → $LLM_WIKI_ROOT/.gitignore 복사 (이미 있으면 건너뜀)
+3. 디렉토리 생성: raw/, raw/assets/, wiki/concepts/, wiki/entities/, wiki/sources/, wiki/analyses/
+4. 핵심 파일 초기화: wiki/index.md, wiki/log.md, wiki/hot.md, wiki/overview.md
+5. .llm-wiki-meta.json 생성 (현재 플러그인 schemaVersion)
+6. 커뮤니티 플러그인 수동 설치 안내 출력
+7. Obsidian에서 볼트 열기 안내
+```
+
+## 스키마 마이그레이션 절차
+
+```
+Trigger: /wiki Step 6에서 vault schemaVersion < plugin schemaVersion
+
+1. ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json에서 target schemaVersion 확인
+2. $LLM_WIKI_ROOT/.llm-wiki-meta.json에서 current schemaVersion 확인
+3. (current + 1) ~ target 까지 순차 마이그레이션:
+   - ${CLAUDE_PLUGIN_ROOT}/scaffold/migrations/vN.md 읽기
+   - 각 마이그레이션의 "절차" 섹션 실행
+4. .llm-wiki-meta.json 갱신 (schemaVersion, pluginVersion, lastMigration)
+5. 결과 리포트 출력
+```
 
 ## Ingest 상세 절차
 

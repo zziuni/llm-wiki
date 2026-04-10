@@ -161,25 +161,9 @@ obsidian move file="old" to="new"     # 위키링크 자동 갱신
 obsidian read file="페이지명"
 ```
 
-## Plugin Structure
+## Plugin
 
-이 프로젝트는 marketplace 구조로 플러그인을 관리한다.
-
-```
-.claude-plugin/
-├── plugin.json          ← 프로젝트 메타
-└── marketplace.json     ← 플러그인 레지스트리 (plugins/ 하위 등록)
-plugins/
-└── llm-wiki/
-    ├── .claude-plugin/plugin.json  ← 플러그인 매니페스트 (name, version, description, author만)
-    ├── commands/        ← 슬래시 커맨드 (.md, frontmatter에 name/description/user_invocable)
-    ├── agents/          ← 서브에이전트 (.md, frontmatter에 name/description/tools)
-    ├── skills/          ← 스킬 (.md + references/)
-    └── hooks/hooks.json ← hooks는 { "hooks": {} } record 형태 필수
-```
-
-- `plugin.json`에 commands/agents/skills 경로를 명시하지 않는다 (auto-discovery)
-- `claude plugin validate <path>`로 구조 검증
+위키 작업은 `plugins/llm-wiki/` 플러그인이 담당한다. 스키마의 Single Source of Truth는 플러그인의 `skills/wiki/skill.md` + `references/`.
 
 ## Conventions
 

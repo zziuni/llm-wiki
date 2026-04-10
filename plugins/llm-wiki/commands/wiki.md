@@ -32,6 +32,19 @@ echo $LLM_WIKI_ROOT
 
 위키 root가 확인되면 이후 모든 `raw/`, `wiki/` 경로는 해당 root 기준으로 절대경로를 사용한다.
 
+### 0.5. Vault 부트스트랩 (신규 볼트 감지)
+
+`$LLM_WIKI_ROOT/.obsidian/` 존재 여부를 확인한다.
+
+- **존재함**: 이 단계를 건너뛴다.
+- **존재하지 않음**: 신규 볼트로 판단하고 scaffold를 적용한다.
+
+  1. `${CLAUDE_PLUGIN_ROOT}/scaffold/.obsidian/` 내용을 `$LLM_WIKI_ROOT/.obsidian/`로 복사
+  2. `${CLAUDE_PLUGIN_ROOT}/scaffold/.gitignore`를 `$LLM_WIKI_ROOT/.gitignore`로 복사 (이미 있으면 건너뜀)
+  3. 사용자에게 Obsidian 커뮤니티 플러그인 수동 설치를 안내:
+     - dataview, templater-obsidian, obsidian-spaced-repetition, tag-wrangler, obsidian-auto-link-title, recent-files-obsidian
+  4. 사용자에게 Obsidian에서 볼트를 열어달라고 안내
+
 ### 1. 디렉토리 구조 확인
 
 `raw/`, `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`, `wiki/analyses/` 존재 확인. 없으면 생성.
@@ -39,6 +52,17 @@ echo $LLM_WIKI_ROOT
 ### 2. 핵심 파일 확인
 
 `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`, `wiki/overview.md` 존재 확인. 없으면 초기 내용으로 생성.
+
+`.llm-wiki-meta.json` 존재 확인. 없으면 현재 플러그인의 schemaVersion으로 생성:
+
+```json
+{
+  "schemaVersion": <plugin의 schemaVersion>,
+  "pluginVersion": "<plugin의 version>",
+  "bootstrappedAt": "<오늘 날짜>",
+  "lastMigration": null
+}
+```
 
 ### 3. Obsidian CLI 연결 확인
 
@@ -55,6 +79,14 @@ echo $LLM_WIKI_ROOT
 - 미처리 raw/ 파일 목록
 - `obsidian orphans` 결과 (고아 페이지 수)
 
-### 6. CLAUDE.md 확인
+### 6. 스키마 정합성 확인
 
-schema가 현재 위키 구조와 일치하는지 확인.
+1. `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`에서 `schemaVersion` 읽기
+2. `$LLM_WIKI_ROOT/.llm-wiki-meta.json`에서 현재 볼트 `schemaVersion` 읽기
+   - 파일 없으면 schemaVersion = 0으로 간주
+3. 버전이 일치하면 건너뜀
+4. 볼트 버전 < 플러그인 버전이면:
+   - `${CLAUDE_PLUGIN_ROOT}/scaffold/migrations/vN.md`를 순차적으로 읽기 (현재 볼트 버전 + 1 부터 플러그인 버전까지)
+   - 각 마이그레이션의 절차를 실행
+   - `.llm-wiki-meta.json`의 `schemaVersion`과 `lastMigration` 갱신
+5. 사용자에게 마이그레이션 결과 리포트
