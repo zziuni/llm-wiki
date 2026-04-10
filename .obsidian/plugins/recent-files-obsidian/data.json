@@ -1,36 +1,92 @@
 {
   "recentFiles": [
     {
-      "basename": "디자인 시스템에 Compound Component Pattern 적용기",
-      "path": "Clipping/디자인 시스템에 Compound Component Pattern 적용기.md"
+      "basename": "overview",
+      "path": "wiki/overview.md"
     },
     {
-      "basename": "git-merge-strategy-ort",
-      "path": "wiki/sources/git-merge-strategy-ort.md"
+      "basename": "index",
+      "path": "wiki/index.md"
     },
     {
-      "basename": "oxfmt",
-      "path": "wiki/sources/oxfmt.md"
+      "basename": "compound-component-pattern",
+      "path": "wiki/concepts/compound-component-pattern.md"
     },
     {
-      "basename": "biome-migration-report",
-      "path": "wiki/sources/biome-migration-report.md"
+      "basename": "biome",
+      "path": "wiki/concepts/biome.md"
     },
     {
-      "basename": "biome-migration-guide",
-      "path": "wiki/sources/biome-migration-guide.md"
+      "basename": "headless-component-web",
+      "path": "wiki/sources/headless-component-web.md"
     },
     {
-      "basename": "elijah-newren",
-      "path": "wiki/entities/elijah-newren.md"
+      "basename": "oxfmt-official-docs",
+      "path": "wiki/sources/oxfmt-official-docs.md"
     },
     {
       "basename": "git-merge-strategies",
       "path": "wiki/concepts/git-merge-strategies.md"
     },
     {
-      "basename": "biome",
-      "path": "wiki/concepts/biome.md"
+      "basename": "junio-hamano",
+      "path": "wiki/entities/junio-hamano.md"
+    },
+    {
+      "basename": "elijah-newren",
+      "path": "wiki/entities/elijah-newren.md"
+    },
+    {
+      "basename": "git-merge-strategy-ort",
+      "path": "wiki/sources/git-merge-strategy-ort.md"
+    },
+    {
+      "basename": "biome-migration-guide",
+      "path": "wiki/sources/biome-migration-guide.md"
+    },
+    {
+      "basename": "biome-migration-report",
+      "path": "wiki/sources/biome-migration-report.md"
+    },
+    {
+      "basename": "headless-component",
+      "path": "wiki/concepts/headless-component.md"
+    },
+    {
+      "basename": "corca-compound-component",
+      "path": "wiki/sources/corca-compound-component.md"
+    },
+    {
+      "basename": "compound-component-pattern-web",
+      "path": "wiki/sources/compound-component-pattern-web.md"
+    },
+    {
+      "basename": "hot",
+      "path": "wiki/hot.md"
+    },
+    {
+      "basename": "flashcard",
+      "path": "plugins/llm-wiki/commands/flashcard.md"
+    },
+    {
+      "basename": "디자인 시스템에 Compound Component Pattern 적용기",
+      "path": "raw/디자인 시스템에 Compound Component Pattern 적용기.md"
+    },
+    {
+      "basename": "Corca",
+      "path": "raw/Corca.md"
+    },
+    {
+      "basename": "Git의-새로운-기본-Merge-전략-ort----Outsider's-Dev-Story-3660a107-6aa7-4548-acb3-c2aeb7ddb1e1",
+      "path": "raw/Git의-새로운-기본-Merge-전략-ort----Outsider's-Dev-Story-3660a107-6aa7-4548-acb3-c2aeb7ddb1e1.md"
+    },
+    {
+      "basename": "3-way-merge",
+      "path": "raw/3-way-merge.md"
+    },
+    {
+      "basename": "monorepo-dx",
+      "path": "wiki/concepts/monorepo-dx.md"
     },
     {
       "basename": "CLAUDE",
@@ -41,40 +97,20 @@
       "path": "branstorming.md"
     },
     {
-      "basename": "overview",
-      "path": "wiki/overview.md"
-    },
-    {
       "basename": "log",
       "path": "wiki/log.md"
-    },
-    {
-      "basename": "index",
-      "path": "wiki/index.md"
     },
     {
       "basename": "oxfmt",
       "path": "wiki/concepts/oxfmt.md"
     },
     {
-      "basename": "monorepo-dx",
-      "path": "wiki/concepts/monorepo-dx.md"
-    },
-    {
       "basename": "Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence",
       "path": "raw/Biome 마이그레이션 가이드 - 코어 파트너프론트엔드 - Confluence.md"
     },
     {
-      "basename": "hot",
-      "path": "wiki/hot.md"
-    },
-    {
       "basename": "autoresearch",
       "path": "plugins/llm-wiki/commands/autoresearch.md"
-    },
-    {
-      "basename": "flashcard",
-      "path": "plugins/llm-wiki/commands/flashcard.md"
     },
     {
       "basename": "lint",
@@ -85,20 +121,8 @@
       "path": "plugins/llm-wiki/commands/query.md"
     },
     {
-      "basename": "3-way-merge",
-      "path": "raw/3-way-merge.md"
-    },
-    {
       "basename": "Migrate to Biome Report - 코어 파트너프론트엔드 - Confluence",
       "path": "raw/Migrate to Biome Report - 코어 파트너프론트엔드 - Confluence.md"
-    },
-    {
-      "basename": "2026-04-09",
-      "path": "raw/2026-04-09.md"
-    },
-    {
-      "basename": "Git의-새로운-기본-Merge-전략-ort----Outsider's-Dev-Story-3660a107-6aa7-4548-acb3-c2aeb7ddb1e1",
-      "path": "raw/Git의-새로운-기본-Merge-전략-ort----Outsider's-Dev-Story-3660a107-6aa7-4548-acb3-c2aeb7ddb1e1.md"
     },
     {
       "basename": "Oxfmt",
