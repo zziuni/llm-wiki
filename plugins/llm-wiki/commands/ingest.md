@@ -13,7 +13,39 @@ raw/ 디렉토리의 소스 파일을 읽고 위키에 통합한다.
 ## 인자
 
 - `파일경로` (선택): 수집할 파일 경로. 생략 시 raw/ 내 아직 수집되지 않은 파일을 자동 감지한다.
-  - 미수집 판단: `wiki/sources/`에 대응하는 요약 페이지가 없는 raw/ 파일
+
+### 미수집 판단 (표준 알고리즘)
+
+**원칙**: 파일명 매칭이 아니라 **참조 무결성** 기반으로 판정한다.
+
+- `wiki/sources/*.md`는 frontmatter `sources:` 필드에 원본 raw 경로를 wikilink로 기록한다:
+  ```yaml
+  sources:
+    - "[[raw/frameworks/Nest.js-d65854e4-080c-43b9-9ab0-e253074abd66]]"
+  ```
+- 이 wikilink 집합이 "이미 수집된 raw 파일"의 공식 정의이다.
+
+**판정 절차**:
+
+1. 모든 `wiki/sources/*.md`의 frontmatter를 파싱하여 `sources:` 필드의 `[[raw/...]]` wikilink를 추출 → `collected` 집합 생성
+2. `raw/**/*.md` 전체 파일 목록 생성 → `all_raw` 집합
+3. `uncollected = all_raw - collected` — 이 차집합이 진짜 미수집 파일
+
+**왜 파일명 매칭은 안 되나**:
+
+raw 파일명과 source 페이지 이름은 임의적으로 축약/변형되어 규칙화가 불가능하다:
+
+| raw 파일명 | source 페이지명 |
+|---|---|
+| `Nest.js-<uuid>.md` | `nestjs-notion.md` |
+| `Next.js-<uuid>.md` | `nextjs-notion.md` |
+| `Prettier-and-ESLint-(feat.-EditorConfig)-<uuid>.md` | `prettier-eslint-notion.md` |
+| `디자인 시스템에 Compound Component 적용기.md` | `corca-compound-component.md` |
+
+소문자·특수문자 정규화로도 매칭이 깨지므로 반드시 frontmatter 역추적 방식을 사용할 것.
+
+**추가 확인**:
+- 콘텐츠가 거의 없는 빈 raw 파일(frontmatter만 있고 본문 10줄 미만)은 수집 대상에서 제외한다. 원본에 없는 내용을 LLM이 채우면 hallucination이므로, ingest는 "요약"이지 "생성"이 아니다. 빈 파일은 별도로 웹 소스를 수집(`/autoresearch`)한 뒤 개념 페이지로 편입하는 경로를 고려한다.
 
 ## 워크플로우
 
