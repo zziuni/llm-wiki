@@ -20,6 +20,8 @@ Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재�
 2. **Wiki** (`wiki/`) — LLM이 소유하는 마크다운 위키. 요약, 엔티티, 개념, 분석 페이지.
 3. **Schema** (플러그인의 `skills/wiki/SKILL.md`와 references) — LLM 행동 규칙, 컨벤션, 워크플로우 정의.
 
+특정 회사에서만 유효한 사실과 운영 맥락은 일반 지식과 분리하여 `wiki/company/<company>/`에 둔다. 현재 대표 data vault는 `company/musinsa/`에서 MSS·29CM의 iOS·Android·Web Client Architecture를 관리한다.
+
 ```
 (vault root)
 ├── raw/                ← Layer 1: 원본 소스 (사용자가 추가, LLM은 읽기만)
@@ -32,7 +34,9 @@ Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재�
 │   ├── concepts/       ← 개념 페이지
 │   ├── entities/       ← 엔티티 페이지 (인물, 조직 등)
 │   ├── sources/        ← 소스별 요약 페이지
-│   └── analyses/       ← 쿼리 결과 중 가치 있는 것 저장
+│   ├── analyses/       ← 회사와 무관한 쿼리 결과 중 가치 있는 것 저장
+│   └── company/        ← 회사별 업무 컨텍스트
+│       └── <company>/  ← context, architecture, facts, decisions, operations, drafts 등
 ├── AGENTS.md           ← 저장소 작업 지침
 ├── CLAUDE.md           ← AGENTS.md 호환 심볼릭 링크
 └── .obsidian/          ← vault 설정
@@ -52,7 +56,7 @@ Karpathy의 "LLM Wiki" 패턴 구현체. LLM이 RAG처럼 매번 지식을 재�
 
 ```yaml
 ---
-type: concept | entity | source | analysis | overview
+type: concept | entity | source | analysis | overview | context | fact | catalog | architecture | decision | operation | draft
 summary: "50-100자 요약 — 쿼리 라우팅용"
 tags:
   - tag1
@@ -67,6 +71,7 @@ status: active | draft | archived
 - `summary`: 전체 로드 없이 관련성 판단하는 한줄 요약
 - `sources`: 이 페이지 내용의 원본 추적
 - `status`: 라이프사이클 관리. lint에서 stale 감지 기준
+- 회사 문서는 `company`, `authority`, `confidentiality`를 필수로 추가하고 서비스·클라이언트 범위를 배열로 기록한다. 상세 스키마는 `skills/wiki/references/metadata.md`가 SSOT다.
 
 ## Core Operations
 
@@ -86,10 +91,10 @@ status: active | draft | archived
 
 위키에 질문:
 
-1. **탐색**: `obsidian search` + `wiki/index.md`에서 관련 페이지 찾기
+1. **탐색**: `obsidian search` + `wiki/index.md`에서 관련 페이지 찾기. 회사 질문이면 vault의 `AGENTS.md`와 company index도 읽기
 2. **드릴다운**: 페이지 읽기, backlinks 따라가며 컨텍스트 수집
 3. **합성**: `[[wikilink]]` 인용 포함 답변
-4. **저장 제안**: 가치 있는 분석이면 `wiki/analyses/`에 저장 제안
+4. **저장 제안**: 범용 분석은 `wiki/analyses/`, 회사 고유 분석은 `wiki/company/<company>/analyses/`에 저장 제안
 
 ### Lint
 
@@ -192,6 +197,7 @@ ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
 - Claude commands: `plugins/llm-wiki/commands/*.md`
 - Codex skills: `plugins/llm-wiki/skills/<operation>/SKILL.md`
 - 공통 규칙: `plugins/llm-wiki/skills/wiki/references/`
+- 회사 컨텍스트 규칙: `plugins/llm-wiki/skills/wiki/references/company-context.md`
 - schema version source of truth: `plugins/llm-wiki/schema.json`
 - 사용자 노출 namespace는 양쪽 모두 `llm-wiki:<operation>`으로 유지한다.
 - Claude/Codex adapter에 공통 규칙을 복사하지 말고 wiki references를 읽게 한다.

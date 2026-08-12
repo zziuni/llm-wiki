@@ -23,11 +23,14 @@ args: "[이름]"
    - 분석/비교 → `wiki/analyses/`
    - 새 개념 발견 → `wiki/concepts/`
    - 새 엔티티 발견 → `wiki/entities/`
+   - 특정 회사의 사실·구조·결정·운영·초안 → `wiki/company/<company>/` 아래 의미에 맞는 디렉터리
+
+   회사 관련 내용은 vault root `AGENTS.md`와 company index를 먼저 읽고 회사·서비스·클라이언트 범위를 확인한다. 일반 개념과 회사의 현재 사실을 한 페이지에 섞지 않는다.
 
 3. **페이지 생성**: frontmatter 포함, 적절한 위치에 생성
 
 4. **교차참조**: 관련 기존 페이지에 `[[wikilink]]` 추가
 
-5. **인덱스 갱신**: `wiki/index.md` 갱신
+5. **인덱스 갱신**: `wiki/index.md`와 해당 `wiki/company/<company>/index.md` 갱신
 
 6. **로깅**: `wiki/log.md`에 기록: `## [YYYY-MM-DD] save | 페이지 이름`

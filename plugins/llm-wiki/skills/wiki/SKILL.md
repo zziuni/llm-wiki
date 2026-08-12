@@ -61,6 +61,8 @@ bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
 6. **플래시카드 동반**: 수집 시 개념/엔티티 페이지에 플래시카드를 함께 생성한다
 7. **핫캐시 유지**: 세션 시작/종료 시 hot.md를 읽고/갱신한다
 8. **스키마 정합성**: /wiki 실행 시 vault 스키마 버전을 확인하고 필요시 마이그레이션한다
+9. **회사 컨텍스트 격리**: 특정 회사에서만 유효한 사실·구조·운영 정보는 `wiki/company/<company>/`에 두고 일반 지식과 섞지 않는다
+10. **Vault 지침 우선**: vault root의 `AGENTS.md`가 회사명, 역할, 서비스 범위 또는 추가 구조를 정의하면 이를 먼저 읽고 따른다
 
 ## 참조 문서
 
@@ -71,5 +73,7 @@ bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
 - `flashcard.md`: 플래시카드 컨벤션 (카드 타입, 덱 구성)
 - `obsidian-cli.md`: CLI 명령어 레퍼런스
 - `workflows.md`: ingest/query/lint/부트스트랩 상세 절차
+- `company-context.md`: 회사별 컨텍스트 경계, 라우팅, 신뢰 수준과 초안 생명주기
 
 작업에 해당하는 reference만 선택하지 말고, 선택한 파일은 끝까지 읽는다. 부트스트랩과 schema migration에는 `vault-structure.md`, `conventions.md`, `workflows.md`, `obsidian-cli.md`를 읽는다.
+회사·조직·서비스·내부 아키텍처·배포·소유권·문서 초안이 관련된 작업에는 `company-context.md`와 `metadata.md`를 반드시 읽는다.

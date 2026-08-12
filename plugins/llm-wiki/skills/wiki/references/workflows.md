@@ -14,7 +14,7 @@ Trigger: /wiki 실행 시 $LLM_WIKI_ROOT/.obsidian/ 미존재
 1. $PLUGIN_ROOT/scaffold/.obsidian/ → $LLM_WIKI_ROOT/.obsidian/ 복사
 2. $PLUGIN_ROOT/scaffold/.gitignore → $LLM_WIKI_ROOT/.gitignore 복사 (이미 있으면 건너뜀)
 3. 디렉토리 생성 (wiki-root.sh 사용):
-   bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir raw/ raw/assets/ wiki/concepts/ wiki/entities/ wiki/sources/ wiki/analyses/
+   bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir raw/ raw/assets/ wiki/concepts/ wiki/entities/ wiki/sources/ wiki/analyses/ wiki/company/
 4. 핵심 파일 초기화: wiki/index.md, wiki/log.md, wiki/hot.md, wiki/overview.md
 5. .llm-wiki-meta.json 생성 (현재 플러그인 schemaVersion)
 6. 커뮤니티 플러그인 수동 설치 안내 출력
@@ -62,12 +62,14 @@ Output: wiki/sources/ 요약 + 개념/엔티티 페이지 갱신 + 플래시카�
 Input: 자연어 질문
 Output: [[wikilink]] 인용 답변 + (선택) analyses/ 저장
 
-1. obsidian search + index.md에서 관련 페이지 탐색
-2. 관련 페이지 읽기 + backlinks 추적
-3. 답변 합성 (인용 포함)
-4. 위키에 정보 부족하면 명시
-5. (사용자 승인) analyses/ 저장 + index.md 갱신
-6. log.md에 기록
+1. wiki/index.md + obsidian search에서 관련 페이지 탐색
+2. 회사 관련 질문이면 root AGENTS.md → company/index.md → company/<company>/index.md 순서로 범위 확인
+3. 관련 페이지 읽기 + backlinks 추적
+4. 회사 문서는 authority/status/검증일로 신뢰 수준 판정
+5. 답변 합성 (인용 포함)
+6. 위키에 정보 부족하면 명시
+7. (사용자 승인) 범용 분석은 analyses/, 회사 분석은 company/<company>/analyses/에 저장하고 해당 index 갱신
+8. log.md에 기록
 ```
 
 ## Lint 상세 절차
@@ -84,6 +86,9 @@ Output: 건강 리포트
    - summary 없음
    - stale (active + updated > 90일)
    - 빈약한 페이지 (200자 미만)
+   - company/ 문서의 company, authority, confidentiality 누락
+   - fact 문서의 sources, verified_at 누락
+   - review_after 만료
 5. ## Flashcards 없는 active 개념/엔티티 페이지
 6. index.md 정합성 (미등록/삭제된 페이지)
 7. 리포트 생성 (Critical / Warning / Info)

@@ -20,7 +20,10 @@
 │   ├── concepts/       ← 개념 페이지
 │   ├── entities/       ← 엔티티 페이지 (인물, 조직 등)
 │   ├── sources/        ← 소스별 요약 페이지
-│   └── analyses/       ← 쿼리 결과 중 가치 있는 것 저장
+│   ├── analyses/       ← 회사와 무관한 쿼리 결과 중 가치 있는 것 저장
+│   └── company/        ← 회사별 업무 컨텍스트 (선택 구조)
+│       ├── index.md    ← 회사 컨텍스트 카탈로그
+│       └── <company>/  ← 회사 단위 격리 경계 (예: musinsa/)
 ├── .obsidian/          ← vault 설정 (플러그인 scaffold로 초기화 가능)
 └── .llm-wiki-meta.json ← 스키마 버전 메타
 ```
@@ -32,6 +35,12 @@
 - **`wiki/hot.md`** — 세션 간 컨텍스트 캐시. 세션 시작 시 읽고, 종료 시 갱신. gitignored — 없으면 새로 생성.
 - **`wiki/overview.md`** — 위키 전체 합성 요약. 소스 축적에 따라 진화.
 - **`.llm-wiki-meta.json`** — 스키마 버전 추적. `/wiki` 커맨드가 플러그인 schemaVersion과 비교하여 마이그레이션 판단.
+- **`wiki/company/index.md`** — 회사별 업무 컨텍스트가 존재할 때의 진입점. 회사 질의는 해당 회사의 `index.md`를 추가로 읽는다.
+- **`AGENTS.md`** — vault별 회사명·역할·서비스 범위와 로컬 규칙의 SSOT. 존재하면 플러그인의 일반 규칙보다 구체적인 지침으로 적용한다.
+
+## 회사별 확장 구조
+
+`wiki/company/`는 특정 회사에 종속되지 않는다. 각 회사는 `wiki/company/<company>/` 아래 독립적으로 보존하며, 이직 후 다른 회사를 추가해도 기존 컨텍스트를 재구성하지 않는다. 세부 구조와 배치 기준은 `company-context.md`를 따른다.
 
 ## Obsidian Vault 설정
 
