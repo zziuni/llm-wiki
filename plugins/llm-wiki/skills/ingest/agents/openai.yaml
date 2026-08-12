@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Ingest"
+  short_description: "Collect raw sources into the wiki"
+  default_prompt: "Ingest new raw sources into my LLM Wiki."

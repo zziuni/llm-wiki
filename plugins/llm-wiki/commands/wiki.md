@@ -53,7 +53,7 @@ echo $LLM_WIKI_ROOT
 
 `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`, `wiki/overview.md` 존재 확인. 없으면 초기 내용으로 생성.
 
-`.llm-wiki-meta.json` 존재 확인. 없으면 현재 플러그인의 schemaVersion으로 생성:
+`.llm-wiki-meta.json` 존재 확인. 없으면 `${CLAUDE_PLUGIN_ROOT}/schema.json`의 schemaVersion으로 생성:
 
 ```json
 {
@@ -81,7 +81,7 @@ echo $LLM_WIKI_ROOT
 
 ### 6. 스키마 정합성 확인
 
-1. `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`에서 `schemaVersion` 읽기
+1. `${CLAUDE_PLUGIN_ROOT}/schema.json`에서 `schemaVersion` 읽기
 2. `$LLM_WIKI_ROOT/.llm-wiki-meta.json`에서 현재 볼트 `schemaVersion` 읽기
    - 파일 없으면 schemaVersion = 0으로 간주
 3. 버전이 일치하면 건너뜀

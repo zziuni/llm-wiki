@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Flashcard"
+  short_description: "Generate and inspect flashcards"
+  default_prompt: "Generate flashcards from my LLM Wiki."

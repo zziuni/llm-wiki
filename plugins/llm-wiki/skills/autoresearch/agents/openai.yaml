@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Autoresearch"
+  short_description: "Research and expand the wiki"
+  default_prompt: "Research this topic and expand my LLM Wiki."

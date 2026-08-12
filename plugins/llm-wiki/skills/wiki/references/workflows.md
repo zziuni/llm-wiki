@@ -2,19 +2,19 @@
 
 > **경로 규칙**: 아래 모든 `raw/`, `wiki/` 경로는 `wiki-root.sh` 스크립트로 해석한다. 직접 상대경로를 사용하지 않는다.
 > ```bash
-> ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")  # 모든 커맨드 진입 시 필수
+> ROOT=$(bash "$PLUGIN_ROOT/hooks/wiki-root.sh")  # 모든 커맨드 진입 시 필수
 > ```
-> **플러그인 경로**: scaffold, 마이그레이션 등 플러그인 리소스는 `${CLAUDE_PLUGIN_ROOT}` 기준.
+> **플러그인 경로**: Claude에서는 `${CLAUDE_PLUGIN_ROOT}`를, Codex에서는 활성 skill 위치에서 계산한 plugin root를 `$PLUGIN_ROOT`로 사용한다.
 
 ## Vault 부트스트랩 절차
 
 ```
 Trigger: /wiki 실행 시 $LLM_WIKI_ROOT/.obsidian/ 미존재
 
-1. ${CLAUDE_PLUGIN_ROOT}/scaffold/.obsidian/ → $LLM_WIKI_ROOT/.obsidian/ 복사
-2. ${CLAUDE_PLUGIN_ROOT}/scaffold/.gitignore → $LLM_WIKI_ROOT/.gitignore 복사 (이미 있으면 건너뜀)
+1. $PLUGIN_ROOT/scaffold/.obsidian/ → $LLM_WIKI_ROOT/.obsidian/ 복사
+2. $PLUGIN_ROOT/scaffold/.gitignore → $LLM_WIKI_ROOT/.gitignore 복사 (이미 있으면 건너뜀)
 3. 디렉토리 생성 (wiki-root.sh 사용):
-   bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" --ensure-dir raw/ raw/assets/ wiki/concepts/ wiki/entities/ wiki/sources/ wiki/analyses/
+   bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir raw/ raw/assets/ wiki/concepts/ wiki/entities/ wiki/sources/ wiki/analyses/
 4. 핵심 파일 초기화: wiki/index.md, wiki/log.md, wiki/hot.md, wiki/overview.md
 5. .llm-wiki-meta.json 생성 (현재 플러그인 schemaVersion)
 6. 커뮤니티 플러그인 수동 설치 안내 출력
@@ -26,10 +26,10 @@ Trigger: /wiki 실행 시 $LLM_WIKI_ROOT/.obsidian/ 미존재
 ```
 Trigger: /wiki Step 6에서 vault schemaVersion < plugin schemaVersion
 
-1. ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json에서 target schemaVersion 확인
+1. $PLUGIN_ROOT/schema.json에서 target schemaVersion 확인
 2. $LLM_WIKI_ROOT/.llm-wiki-meta.json에서 current schemaVersion 확인
 3. (current + 1) ~ target 까지 순차 마이그레이션:
-   - ${CLAUDE_PLUGIN_ROOT}/scaffold/migrations/vN.md 읽기
+   - $PLUGIN_ROOT/scaffold/migrations/vN.md 읽기
    - 각 마이그레이션의 "절차" 섹션 실행
 4. .llm-wiki-meta.json 갱신 (schemaVersion, pluginVersion, lastMigration)
 5. 결과 리포트 출력

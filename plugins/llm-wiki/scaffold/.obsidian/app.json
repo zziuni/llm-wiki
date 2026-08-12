@@ -9,9 +9,12 @@
   "defaultViewMode": "source",
   "userIgnoreFilters": [
     ".claude",
+    ".agents",
+    ".codex-plugin",
     ".git",
     ".gitignore",
     ".llm-wiki-meta.json",
+    "AGENTS.md",
     "CLAUDE.md"
   ]
 }
