@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Query"
+  short_description: "Search and synthesize the wiki"
+  default_prompt: "Answer my question using the LLM Wiki."

@@ -1,13 +1,6 @@
 ---
 name: wiki
-description: LLM Wiki 핵심 오케스트레이션 — 위키 구조, 컨벤션, 워크플로우를 정의하는 메인 스킬
-references:
-  - references/vault-structure.md
-  - references/conventions.md
-  - references/metadata.md
-  - references/flashcard.md
-  - references/obsidian-cli.md
-  - references/workflows.md
+description: Obsidian LLM Wiki를 부트스트랩하고 상태, 경로, schema migration을 관리하는 핵심 오케스트레이션이다. 사용자가 wiki 초기화, 상태 확인, vault 설정 또는 schema migration을 요청할 때 사용한다. 다른 llm-wiki skills의 공통 규칙도 제공한다.
 ---
 
 # Wiki Orchestration Skill
@@ -19,7 +12,7 @@ references:
 두 가지 경로 기준이 있다:
 
 - **`$LLM_WIKI_ROOT`** — vault(데이터) 경로. 모든 `raw/`, `wiki/` 경로의 기준.
-- **`${CLAUDE_PLUGIN_ROOT}`** — 플러그인(도구) 경로. scaffold 파일, 마이그레이션 파일 등 플러그인 자체 리소스 참조용.
+- **Plugin root** — 현재 `SKILL.md`에서 두 단계 위인 `plugins/llm-wiki/`. scaffold, schema, helper script 등 플러그인 리소스의 기준.
 
 ### Vault 경로
 
@@ -35,7 +28,8 @@ references:
 1. 커맨드 진입 시 아래를 실행하여 위키 root를 확인한다:
 
 ```bash
-ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
+PLUGIN_ROOT="<현재 SKILL.md에서 두 단계 위의 절대경로>"
+ROOT=$(bash "$PLUGIN_ROOT/hooks/wiki-root.sh")
 ```
 
 - 성공 → `$ROOT`를 이후 모든 경로의 base로 사용 (예: `$ROOT/wiki/index.md`)
@@ -45,11 +39,11 @@ ROOT=$(bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh")
 
 ```bash
 # 파일 경로 해석
-bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" wiki/concepts/page.md
+bash "$PLUGIN_ROOT/hooks/wiki-root.sh" wiki/concepts/page.md
 # → /absolute/path/to/wiki/concepts/page.md
 
 # 디렉토리 생성 (mkdir 직접 사용 금지)
-bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
+bash "$PLUGIN_ROOT/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
 # → 복수 인자 가능: --ensure-dir raw/ wiki/concepts/ wiki/entities/
 ```
 
@@ -77,3 +71,5 @@ bash "${CLAUDE_PLUGIN_ROOT}/hooks/wiki-root.sh" --ensure-dir wiki/concepts/
 - `flashcard.md`: 플래시카드 컨벤션 (카드 타입, 덱 구성)
 - `obsidian-cli.md`: CLI 명령어 레퍼런스
 - `workflows.md`: ingest/query/lint/부트스트랩 상세 절차
+
+작업에 해당하는 reference만 선택하지 말고, 선택한 파일은 끝까지 읽는다. 부트스트랩과 schema migration에는 `vault-structure.md`, `conventions.md`, `workflows.md`, `obsidian-cli.md`를 읽는다.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Wiki"
+  short_description: "Bootstrap and inspect the wiki"
+  default_prompt: "Bootstrap my LLM Wiki and report its status."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki: Save"
+  short_description: "Save this conversation to the wiki"
+  default_prompt: "Save the valuable parts of this conversation to my LLM Wiki."

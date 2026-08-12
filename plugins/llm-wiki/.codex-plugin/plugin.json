@@ -1,0 +1,31 @@
+{
+  "name": "llm-wiki",
+  "version": "0.2.0",
+  "description": "Build and maintain an Obsidian-based persistent LLM wiki",
+  "author": {
+    "name": "zziuni"
+  },
+  "keywords": [
+    "obsidian",
+    "wiki",
+    "knowledge-management",
+    "flashcards"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LLM Wiki",
+    "shortDescription": "Build and query a persistent Obsidian wiki",
+    "longDescription": "Ingest sources, maintain linked wiki pages, query accumulated knowledge, lint the vault, and generate spaced-repetition flashcards.",
+    "developerName": "zziuni",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "새 raw 소스를 위키에 수집해줘",
+      "내 위키에서 이 주제를 찾아 답해줘",
+      "위키 상태를 검사해줘"
+    ]
+  }
+}
