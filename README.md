@@ -2,6 +2,8 @@
 
 Claude Code와 Codex가 Obsidian vault를 점진적으로 구축하고 유지하도록 하는 플러그인이다. 플러그인 소스와 실제 위키 데이터는 분리하며, vault 위치는 `$LLM_WIKI_ROOT`로 지정한다.
 
+일반 기술 지식과 특정 회사의 업무 컨텍스트를 분리할 수 있다. 회사 정보는 `wiki/company/<company>/` 아래에서 조직·아키텍처·원자적 사실·결정·운영 절차·게시 초안을 서로 다른 신뢰 수준으로 관리한다. vault별 구체적인 회사와 서비스 범위는 해당 vault의 `AGENTS.md`가 정의한다.
+
 ## Codex 설정
 
 Codex CLI 0.147.0 이상을 기준으로 한다.

@@ -1,6 +1,6 @@
 {
   "name": "llm-wiki",
-  "version": "0.2.0",
+  "version": "0.2.0+codex.20260812024651",
   "description": "Build and maintain an Obsidian-based persistent LLM wiki",
   "author": {
     "name": "zziuni"
@@ -23,9 +23,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "새 raw 소스를 위키에 수집해줘",
-      "내 위키에서 이 주제를 찾아 답해줘",
-      "위키 상태를 검사해줘"
+      "\uc0c8 raw \uc18c\uc2a4\ub97c \uc704\ud0a4\uc5d0 \uc218\uc9d1\ud574\uc918",
+      "\ub0b4 \uc704\ud0a4\uc5d0\uc11c \uc774 \uc8fc\uc81c\ub97c \ucc3e\uc544 \ub2f5\ud574\uc918",
+      "\uc704\ud0a4 \uc0c1\ud0dc\ub97c \uac80\uc0ac\ud574\uc918"
     ]
   }
 }

@@ -65,8 +65,10 @@ Obsidian은 shortest path로 wikilink를 해석하므로, **서브디렉토리�
 | `entities/` | 인물/조직 이름 | `junio-hamano.md` |
 | `sources/` | **출처-주제** | `corca-compound-component.md` |
 | `analyses/` | 질문/분석 주제 | `monorepo-vs-polyrepo.md` |
+| `company/<company>/` | 회사 범위 안에서 충돌하지 않는 역할별 이름 | `29cm-web-deployment.md` |
 
 **핵심 규칙**: `sources/` 파일명은 반드시 출처(저자, 사이트, 조직)를 포함하여 `concepts/`와 충돌을 방지한다.
+회사 하위에서도 `overview.md`, `index.md` 외에는 서비스 또는 대상을 드러내는 이름을 사용해 전역 wikilink 충돌을 줄인다.
 
 ## 소스 인용
 

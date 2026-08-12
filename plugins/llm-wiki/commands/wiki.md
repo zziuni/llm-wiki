@@ -47,7 +47,7 @@ echo $LLM_WIKI_ROOT
 
 ### 1. 디렉토리 구조 확인
 
-`raw/`, `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`, `wiki/analyses/` 존재 확인. 없으면 생성.
+`raw/`, `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`, `wiki/analyses/`, `wiki/company/` 존재 확인. 없으면 생성. `wiki/company/`는 선택적 회사 컨텍스트의 상위 경계이며 특정 회사 디렉터리를 임의 생성하지 않는다.
 
 ### 2. 핵심 파일 확인
 
@@ -75,6 +75,7 @@ echo $LLM_WIKI_ROOT
 ### 5. 위키 상태 리포트
 
 - 총 페이지 수 (concepts, entities, sources, analyses 각각)
+- 회사 컨텍스트가 있으면 회사별 페이지 수와 canonical/draft/proposed 상태
 - 최근 수집 소스
 - 미처리 raw/ 파일 목록
 - `obsidian orphans` 결과 (고아 페이지 수)
