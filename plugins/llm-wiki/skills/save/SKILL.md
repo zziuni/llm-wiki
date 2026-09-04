@@ -12,3 +12,6 @@ description: 현재 대화에서 재사용 가치가 있는 발견, 분석, 비�
 5. 승인 후 frontmatter를 포함한 페이지를 생성하거나 기존 페이지에 통합한다.
 6. 관련 wikilink와 `wiki/index.md` 및 해당 company index를 갱신하고 `wiki/log.md`에 `save` 기록을 남긴다.
 7. 대화에 없는 사실을 보충해 쓰지 않는다. draft·proposal을 canonical fact로 승격하지 않는다.
+8. vault가 git 저장소이면 이번 save에서 변경한 파일만 commit한다. 현재 checkout이 main이면 main에 직접 commit하고, 별도 worktree 브랜치이면 vault root `AGENTS.md`의 main 반영 절차에 따라 main까지 merge한다. 이는 별도 요청이 없어도 수행하는 필수 종료 조건이다.
+9. worktree의 commit과 main 반영이 끝나기 전에는 save를 완료로 보고하지 않는다. main이 앞서 fast-forward가 거부되면 worktree 브랜치를 main 위로 rebase한 뒤 다시 `--ff-only` merge하고, `wiki/index.md`·`wiki/log.md`·`wiki/hot.md` 충돌은 양쪽 추가분을 모두 보존한다.
+10. 관련 없는 변경은 stage하거나 commit하지 않는다. dirty main, 충돌 또는 권한 문제를 안전하게 해소할 수 없을 때만 중단하고 구체적인 상태를 보고한다. push는 사용자가 명시적으로 요청한 경우에만 수행한다.

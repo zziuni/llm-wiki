@@ -1,6 +1,6 @@
 {
   "name": "llm-wiki",
-  "version": "0.3.0+codex.20260812145728",
+  "version": "0.3.1+codex.20260904055635",
   "description": "Build and maintain an Obsidian-based persistent LLM wiki",
   "author": {
     "name": "zziuni"

@@ -13,7 +13,7 @@
       "name": "llm-wiki",
       "source": "./plugins/llm-wiki",
       "description": "Karpathy LLM Wiki pattern — Claude Code가 Obsidian 위키를 점진적으로 구축/유지하는 플러그인",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "category": "productivity",
       "keywords": [
         "llm-wiki",

@@ -34,3 +34,9 @@ args: "[이름]"
 5. **인덱스 갱신**: `wiki/index.md`와 해당 `wiki/company/<company>/index.md` 갱신
 
 6. **로깅**: `wiki/log.md`에 기록: `## [YYYY-MM-DD] save | 페이지 이름`
+
+7. **Git 반영 — 필수 종료 조건**:
+   - vault가 git 저장소이면 이번 save에서 변경한 파일만 commit한다.
+   - main checkout이면 main에 직접 commit한다.
+   - 별도 worktree 브랜치이면 vault root `AGENTS.md`의 절차로 main까지 `--ff-only` merge한다. main이 앞섰으면 worktree 브랜치를 main 위로 rebase하고, 인덱스·로그·hot cache 충돌은 양쪽 추가분을 모두 보존한다.
+   - commit과 main 반영 전에는 완료로 보고하지 않는다. 관련 없는 변경은 포함하지 않으며 push는 사용자가 명시적으로 요청한 경우에만 한다.
